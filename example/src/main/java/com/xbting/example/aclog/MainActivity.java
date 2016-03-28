@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ACLog.init(getApplication());
-        ACLog.DEBUG = true;
-        ACLog.WRITE_TO_File = false;
+        ACLog.DEBUG = false;
+        ACLog.WRITE_TO_File = true;
         init();
     }
 
@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         ACLog.i(JSON);
         ACLog.w(STRING_LONG);
         ACLog.e(LOG_MSG);
+        ACLog.json(TAG,JSON);
+
     }
 
     public void logWithTag(View view) {

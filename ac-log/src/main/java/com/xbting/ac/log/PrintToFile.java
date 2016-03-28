@@ -35,17 +35,17 @@ public class PrintToFile {
         StringBuffer sb = new StringBuffer();
         sb.append("\r\n");
         sb.append(getCurrentTime());
-        sb.append("-->>>>");
+        sb.append("-->>>");
         sb.append(msg);
         if (save(ACLog.LOG_PATH, fileName, sb.toString())) {
-            Log.d(tag, "save log success ! location is >>>" + ACLog.LOG_PATH + "/" + fileName);
+            if(ACLog.DEBUG){
+                Log.d(tag, "save log success ! location is >>>" + ACLog.LOG_PATH + "/" + fileName);
+            }
         } else {
-            Log.e(tag, "save log fails !");
+            if(ACLog.DEBUG){
+                Log.e(tag, "save log fails !");
+            }
         }
-    }
-
-    public void printJson(String tag,String file, String msg) {
-
     }
 
     public boolean save(String dic, String fileName, String msg) {

@@ -4,6 +4,10 @@ import android.util.Log;
 
 import com.xbting.ac.log.ACLog.LogLevel;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * 输出到控制台
  * <p/>
@@ -42,6 +46,13 @@ public class PrintToConsole {
         }
     }
 
+    /**
+     * 打印默认格式日志
+     *
+     * @param tag
+     * @param msg
+     * @param level
+     */
     public void print(String tag, String msg, int level) {
         int index = 0;
         int maxLength = 2000;
@@ -59,8 +70,45 @@ public class PrintToConsole {
         }
     }
 
-    public void printJson(String tag, String msg, int level) {
+    /**
+     * 打印json格式日志
+     *
+     * @param tag
+     * @param msg
+     * @param headString
+     */
+    public void printJson(String tag, String msg, String headString) {
+        String message;
 
+        try {
+            if (msg.startsWith("{")) {
+                JSONObject jsonObject = new JSONObject(msg);
+                message = jsonObject.toString(ACLog.JSON_INDENT);
+            } else if (msg.startsWith("[")) {
+                JSONArray jsonArray = new JSONArray(msg);
+                message = jsonArray.toString(ACLog.JSON_INDENT);
+            } else {
+                message = msg;
+            }
+        } catch (JSONException e) {
+            message = msg;
+        }
+
+        printLine(tag, true);
+        message = headString + ACLog.LINE_SEPARATOR + message;
+        String[] lines = message.split(ACLog.LINE_SEPARATOR);
+        for (String line : lines) {
+            Log.d(tag, "║ " + line);
+        }
+        printLine(tag, false);
+    }
+
+    public static void printLine(String tag, boolean isTop) {
+        if (isTop) {
+            Log.d(tag, "╔═══════════════════════════════════════════════════════════════════════════════════════");
+        } else {
+            Log.d(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
+        }
     }
 
 }

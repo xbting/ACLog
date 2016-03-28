@@ -15,7 +15,7 @@ public class ACLog {
     /**
      * 是否显示日志
      */
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     /**
      * 是否写到文件中
      */
@@ -28,6 +28,8 @@ public class ACLog {
      * json 缩进数
      */
     public static final int JSON_INDENT = 4;
+    public static final String LINE_SEPARATOR = System.getProperty("line.separator");
+
 
     /**
      * 初始化日志
@@ -142,6 +144,12 @@ public class ACLog {
                 }
                 break;
             case LogLevel.JSON:
+                if (DEBUG) {
+                    PrintToConsole.getInstance().printJson(tag, msg, logTag.mInfo);
+                }
+                if (WRITE_TO_File) {
+                    PrintToFile.getInstance().print(tag, null, msgBuf.toString());
+                }
                 break;
         }
 
