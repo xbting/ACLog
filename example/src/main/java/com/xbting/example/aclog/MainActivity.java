@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ACLog.init(getApplication());
-        ACLog.DEBUG = false;
-        ACLog.WRITE_TO_File = true;
+        ACLog.DEBUG = true;
+        ACLog.WRITE_TO_File = false;
         init();
     }
 

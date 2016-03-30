@@ -14,7 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 输出到文件
+ * print log to file
  * <p/>
  * Created by xubt on 2016/3/28.
  */

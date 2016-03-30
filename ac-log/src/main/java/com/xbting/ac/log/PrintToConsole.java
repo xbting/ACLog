@@ -98,16 +98,17 @@ public class PrintToConsole {
         message = headString + ACLog.LINE_SEPARATOR + message;
         String[] lines = message.split(ACLog.LINE_SEPARATOR);
         for (String line : lines) {
-            Log.d(tag, "║ " + line);
+            Log.d(tag,  line);
         }
         printLine(tag, false);
     }
 
+
     public static void printLine(String tag, boolean isTop) {
         if (isTop) {
-            Log.d(tag, "╔═══════════════════════════════════════════════════════════════════════════════════════");
+            Log.d(tag, "***********************************************************************************************************************************************");
         } else {
-            Log.d(tag, "╚═══════════════════════════════════════════════════════════════════════════════════════");
+            Log.d(tag, "***********************************************************************************************************************************************");
         }
     }
 

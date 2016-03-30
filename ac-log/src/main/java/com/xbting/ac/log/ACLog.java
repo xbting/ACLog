@@ -17,7 +17,7 @@ public class ACLog {
      */
     public static boolean DEBUG = false;
     /**
-     * 是否写到文件中
+     * Whether to save to file
      */
     public static boolean WRITE_TO_File = false;
     /**
@@ -25,24 +25,24 @@ public class ACLog {
      */
     static String LOG_PATH = "/sdcard/ACLog/";
     /**
-     * json 缩进数
+     *
      */
     public static final int JSON_INDENT = 4;
     public static final String LINE_SEPARATOR = System.getProperty("line.separator");
 
 
     /**
-     * 初始化日志
+     * Initialize the log util
      */
     public static void init(Context context) {
         init(context, null);
     }
 
     /**
-     * 初始化日志
-     * 默认日志保存目录：/sdCard/Android/data/你的应用包名/cache/目录
+     * Initialize the log
+     * default  log directory to save:/sdCard/Android/data/app_package/file/
      *
-     * @param path 日志存放的目录
+     * @param path
      */
     public static void init(Context context, String path) {
         mContext = context;
