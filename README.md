@@ -11,13 +11,13 @@ Grab via Maven  :
 <dependency>
   <groupId>com.xbting.ac.log</groupId>
   <artifactId>ac-log</artifactId>
-  <version>0.1</version>
+  <version>0.3</version>
   <type>pom</type>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'com.xbting.ac.log:ac-log:0.1'
+compile 'com.xbting.ac.log:ac-log:0.3'
 ```
 
 
