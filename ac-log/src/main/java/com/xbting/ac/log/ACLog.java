@@ -181,7 +181,9 @@ public class ACLog {
             ACLogTag tag = new ACLogTag();
             tag.mTag = st.getFileName();
             StringBuffer stuf = new StringBuffer();
-            stuf.append("[ (");
+            stuf.append("[ ");
+            stuf.append(Thread.currentThread().getName());
+            stuf.append("/(");
             stuf.append(st.getFileName());
             stuf.append(":");
             stuf.append(st.getLineNumber());
