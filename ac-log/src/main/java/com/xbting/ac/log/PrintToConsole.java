@@ -10,7 +10,7 @@ import org.json.JSONObject;
 
 /**
  * 输出到控制台
- * <p/>
+ *
  * Created by xubt on 2016/3/28.
  */
 public class PrintToConsole {

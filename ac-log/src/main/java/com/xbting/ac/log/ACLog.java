@@ -19,7 +19,7 @@ public class ACLog {
     public static boolean DEBUG = false;
 
     /**
-     * 自定义全局tag，默认是null，显示类名
+     * 全局tag，默认null，tag显示类名
      */
     public static String TAG = null;
     /**
