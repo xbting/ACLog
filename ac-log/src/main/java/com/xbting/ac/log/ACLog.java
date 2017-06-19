@@ -3,6 +3,7 @@ package com.xbting.ac.log;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.File;
 
@@ -16,6 +17,11 @@ public class ACLog {
      * 是否显示日志
      */
     public static boolean DEBUG = false;
+
+    /**
+     * 自定义全局tag，默认是null，显示类名
+     */
+    public static String TAG = null;
     /**
      * Whether to save to file
      */
@@ -125,7 +131,11 @@ public class ACLog {
     private static void log(String tag, String msg, int level) {
         ACLogTag logTag = getInstance().getLogTag();
         if (TextUtils.isEmpty(tag)) {
-            tag = logTag.mTag;
+            if (TextUtils.isEmpty(ACLog.TAG)) {
+                tag = logTag.mTag;
+            } else {
+                tag = ACLog.TAG;
+            }
         }
         StringBuffer msgBuf = new StringBuffer();
         msgBuf.append(logTag.mInfo);
